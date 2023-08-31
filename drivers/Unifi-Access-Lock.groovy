@@ -14,12 +14,6 @@
  *
  * Hubitat is the Trademark and Intellectual Property of Hubitat, Inc.
  * Unifi is the Trademark and Intellectual Property of Ubiquiti Networks, Inc.
- *
- * -------------------------------------------------------------------------------------------------------------------
- *
- *  Changes:
- *  1.0.0 - Initial release
- *
  */
 
 metadata {
