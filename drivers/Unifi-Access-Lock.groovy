@@ -33,6 +33,7 @@ metadata {
     capability "Polling"
     capability "Refresh"
   }
+
   preferences {
     input name: "host",
       type: "string",
@@ -52,17 +53,20 @@ metadata {
   }
 }
 
+
 def updated() {
-    refresh()
+  refresh()
 }
+
 
 def lock() {
   log.debug "Unifi API does not support locking"
 }
 
+
 def unlock() {
   def params = [
-    uri: "${host}/api/v1/developer/doors/${doorId}/unlock", 
+    uri: "${host}/api/v1/developer/doors/${doorId}/unlock",
     ignoreSSLIssues: true,
     headers: [
       "Authorization": "Bearer ${token}",
@@ -71,8 +75,9 @@ def unlock() {
     ]
   ]
   try {
-    httpPut(params) { resp ->
-      options = resp.data
+    httpPut(params) {
+      resp ->
+        options = resp.data
       if (options.code == "SUCCESS") {
         sendEvent(name: lock, value: "unlocked", descriptionText: "Door ${state.name} is unlocked", isStateChange: true)
       } else {
@@ -84,13 +89,15 @@ def unlock() {
   }
 }
 
+
 def poll() {
   refresh()
 }
 
+
 def refresh() {
   def params = [
-    uri: "${host}/api/v1/developer/doors/${doorId}", 
+    uri: "${host}/api/v1/developer/doors/${doorId}",
     ignoreSSLIssues: true,
     headers: [
       "Authorization": "Bearer ${token}",
@@ -99,8 +106,9 @@ def refresh() {
     ]
   ]
   try {
-    httpGet(params) { resp ->
-      options = resp.data
+    httpGet(params) {
+      resp ->
+        options = resp.data
       if (options.code != "SUCCESS") {
         log.error "Error retrieving door info: ${options.msg}"
       } else {
@@ -123,8 +131,9 @@ def refresh() {
   }
 }
 
+
 private static toLockStatus(door_lock_relay_status) {
-  switch(door_lock_relay_status) {
+  switch (door_lock_relay_status) {
     case "lock":
       return "locked"
     case "unlock":
