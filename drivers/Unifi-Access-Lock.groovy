@@ -73,10 +73,11 @@ def unlock() {
   try {
     httpPut(params) { resp ->
       options = resp.data
-      if (options.code != "SUCCESS") {
+      if (options.code == "SUCCESS") {
+        sendEvent(name: lock, value: "unlocked", descriptionText: "Door ${state.name} is unlocked", isStateChange: true)
+      } else {
         log.error "Error retrieving door info: ${options.msg}"
       }
-      sendEvent(lock: "unlocked")
     }
   } catch (e) {
     log.error "Error updating door options: $e"
@@ -108,9 +109,13 @@ def refresh() {
         state.fullName = options.data.full_name
         state.name = options.data.name
         state.type = options.data.type
-        state.lock = toLockStatus(options.data.door_lock_relay_status)
-        sendEvent(lock: toLockStatus(options.data.door_lock_relay_status))
-        log.info "Door ${state.name} is ${state.lock}"
+        if (getState().lock != toLockStatus(options.data.door_lock_relay_status)) {
+          state.lock = toLockStatus(options.data.door_lock_relay_status)
+          sendEvent(name: lock, value: state.lock, descriptionText: "Door ${state.name} is ${state.lock}", isStateChange: true)
+        } else {
+          state.lock = toLockStatus(options.data.door_lock_relay_status)
+          sendEvent(name: lock, value: state.lock, descriptionText: "Door ${state.name} is ${state.lock}", isStateChange: false)
+        }
       }
     }
   } catch (e) {
