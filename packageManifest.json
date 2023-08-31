@@ -1,7 +1,7 @@
 {
   "packageName": "Unifi Access Lock",
   "author": "Garth Braithwaite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minimumHEVersion": "2.1.9",
   "dateReleased": "2023-08-30",
   "drivers": [
