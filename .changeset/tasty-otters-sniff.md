@@ -1,5 +1,5 @@
 ---
-"@fake-scope/fake-pkg": patch
+"hubitat-unifi-access-lock": patch
 ---
 
 Initial commit
