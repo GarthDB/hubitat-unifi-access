@@ -1,5 +1,11 @@
 # hubitat-unifi-access-lock
 
+## 1.0.2
+
+### Patch Changes
+
+- 6c9a5d8: publish package
+
 ## 1.0.1
 
 ### Patch Changes
