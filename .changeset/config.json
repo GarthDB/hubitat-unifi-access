@@ -1,0 +1,6 @@
+{
+  "privatePackages": {
+    "version": true,
+    "tag": true
+  }
+}
