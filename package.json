@@ -1,6 +1,5 @@
 {
   "name": "hubitat-unifi-access-lock",
-  "private": true,
   "version": "1.0.1",
   "license": "Apache-2.0"
 }
