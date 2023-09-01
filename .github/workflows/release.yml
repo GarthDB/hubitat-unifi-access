@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-      
+
       - name: Install Dependencies
         run: npm install @changesets/cli
 
@@ -27,10 +27,10 @@ jobs:
         uses: changesets/action@v1
         with:
           commit: "chore: release"
-          publish: npm release
+          publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
       # - name: Send a Slack notification if a publish happens
       #   if: steps.changesets.outputs.published == 'true'
       #   # You can do something when a publish happens.
