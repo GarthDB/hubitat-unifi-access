@@ -19,7 +19,7 @@
 metadata {
   definition(
     name: "Unifi Access Lock",
-    namespace: "unifi",
+    namespace: "unifi-access",
     author: "Garth Braithwaite",
     importUrl: "https://raw.githubusercontent.com/garthdb/hubitat-unifi-access-lock/main/drivers/Unifi-Access-Lock.groovy"
   ) {

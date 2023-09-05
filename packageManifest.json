@@ -1,15 +1,17 @@
 {
-  "packageName": "Unifi Access Lock",
+  "packageName": "Unifi Access",
   "author": "Garth Braithwaite",
+  "gitHubUrl": "https://github.com/GarthDB/hubitat-unifi-access/",
   "version": "1.0.0",
-  "minimumHEVersion": "2.1.9",
   "dateReleased": "2023-08-30",
+  "category": "Control",
+  "tags": "Locks",
   "drivers": [
     {
-      "id": "b7615c92-c397-462c-acfb-c26c9804ae93",
+      "id": "93026c27-ded1-4888-88c6-aee6fd3b0284",
       "name": "Unifi Access Lock",
-      "namespace": "unifi",
-      "location": "https://raw.githubusercontent.com/garthdb/hubitat-unifi-access-lock/main/drivers/Unifi-Access-Lock.groovy",
+      "namespace": "unifi-access",
+      "location": "https://raw.githubusercontent.com/garthdb/hubitat-unifi-access/main/drivers/Unifi-Access-Lock.groovy",
       "required": false
     }
   ]
