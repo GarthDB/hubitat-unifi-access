@@ -12,8 +12,8 @@ Use [Hubitat Package Manager](https://hubitatpackagemanager.hubitatcommunity.com
 * Create a new virtual device using the driver
 * Update the preferences for the device:
   * "The API host address of the Unifi Access Controller (e.g. https://console-ip:12445)" is usually the API of the controller. See the Unifi Access Open API documentation for details on "Obtain Your Hostname". It should contain `https://` and the port (e.g., `:12445`).
-  * "The API token for the Unifi Access Controller" is something that can be generated in the Unifi Access App. It needs the correct permissions to be able to unlock and view the lock status. See the Unifi Access Open API documentation for details on "Create API Token & Download API Documentation"
-  * "The ID of the door to control" can be obtained using the Open API to get a list of available doors and their corresponding IDs. See the Unifi Access Open API documentation for details on "Fetch Devices"
+  * "The API token for the Unifi Access Controller" can be generated in the Unifi Access App. It needs the correct permissions to unlock and view the lock status. See the Unifi Access Open API documentation for details on "Create API Token & Download API Documentation".
+  * "The ID of the door to control" can be obtained using the Open API to get a list of available doors and their corresponding IDs. See the Unifi Access Open API documentation for details on "Fetch Devices".
 
 ## Capabilities
 
@@ -24,11 +24,16 @@ Use [Hubitat Package Manager](https://hubitatpackagemanager.hubitatcommunity.com
 
 Since the local Unifi Access API requires polling to check the status of the lock, it's recommended to use [Rule Machine](https://docs2.hubitat.com/apps/rule-machine) to refresh or poll the lock status every 2-3 seconds.
 
+Here's an example of a rule I've tested:
+
+<img width="679" alt="image" src="https://github.com/GarthDB/hubitat-unifi-access/assets/125516/d7157ea8-8211-449a-a8f6-6a0ed6ea3725">
+
+
 ## Future feature ideas:
 
-Just some functionality that should be possible. Pull requests welcome.
+Some functionality that should be possible in future releases; pull requests are welcome.
 
 * Use the API to list doors and select the door ID from a dropdown.
 * Add support for managing codes(?)
 * Automate polling. Currently, something external to the driver is required to poll the API to check the status.
-* Create a driver to check and handle doorbell (`access.remotecall.request`) events. Using Rule Machine, this could allow for setting up a 3rd party door chime.
+* Create a driver to check and handle doorbell (`access.remotecall.request`) events. Using this with Rule Machine could allow for setting up a 3rd party door chime.
