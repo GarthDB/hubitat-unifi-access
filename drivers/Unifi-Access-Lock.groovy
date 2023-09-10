@@ -114,9 +114,6 @@ def refresh() {
         if (getState().lock != toLockStatus(options.data.door_lock_relay_status)) {
           state.lock = toLockStatus(options.data.door_lock_relay_status)
           sendEvent(name: lock, value: state.lock, descriptionText: "Door ${state.name} is ${state.lock}", isStateChange: true)
-        } else {
-          state.lock = toLockStatus(options.data.door_lock_relay_status)
-          sendEvent(name: lock, value: state.lock, descriptionText: "Door ${state.name} is ${state.lock}", isStateChange: false)
         }
       }
     }
